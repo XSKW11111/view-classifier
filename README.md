@@ -59,7 +59,31 @@ def Insert(hashvalue, content, predicted_class, time, table):
     )
 ~~~
 
+## Create key space and table in Cassandra
 
+```
+kubectl exec -it cassandra-0 -- cqlsh 
+```
+
+```
+CREATE KEYSPACE Predicted_Comment WITH replication = {'class' : 'SimpleStrategy', 'replication_factor' : 1};
+```
+
+```
+USE Predicted_Comment;
+```
+
+```
+CREATE TABLE Predicted_Comment_table(
+	hash_value ascii, 
+	content text,
+	predicted_class text,
+	time timestamp,
+	PRIMARY KEY (hash_value)
+	);
+```
+
+## Launch application
 
 Then we can start bash in pod-viewclassifier and move to directory of model to prepare to start:
 
