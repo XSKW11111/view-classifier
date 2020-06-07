@@ -33,7 +33,7 @@ kubectl exec -it cassandra-0 -- nodetool status
 
 
 
-Copy the ip of cassandra container to cassandra_helper.py.
+Copy the ip of cassandra container to **cluster** in cassandra_helper.py .
 
 
 
