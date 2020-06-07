@@ -1,0 +1,25 @@
+
+---
+apiVersion: v1      # see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/
+kind: Pod           # type of object that's defined in this file
+metadata:
+  name: pod-viewclassifier   # the name displayed in the first column of 'kubectl get pods'
+  labels:
+    app: view-classifier  # this tag is added to help this object to link to the service object.
+spec:
+  containers:
+    - name: cntr-viewclassifier      # name of the container that will reside in the pod
+      image: xskw11111/view-classifier:latest      # using the official apache image from docker hub, along with a tag
+      command: [ "/bin/bash", "-c", "--" ]
+      args: [ "while true; do sleep 30; done;" ]
+      ports:                # this bit is purely for informational purposes only and can be omitted.
+        - containerPort: 80   # what port the container will be listening on
+      volumeMounts:
+        - mountPath: "/home/viewclassifier/minikube_model"
+          name: host-mount
+
+  volumes:
+  - name: host-mount
+    hostPath:
+      path: "/minikube_model"
+  

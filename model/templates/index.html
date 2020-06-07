@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <style>
+    form {
+        margin: auto;
+        padding: auto;
+        text-align: center;
+
+    } 
+    </style>
+    <title>
+        {{title}} 
+    </title>
+    <body>
+        <form  action="/classify"  id="Comment form" method="POST">
+            <label for="Comment"> Comment </label><br>
+            <input type="text" id="comment" name="Comment"> <br>
+            <input type="submit" value="Submit" onclick="SubmitButton()">
+        </form>
+    </body>
+
+    <script>
+    function SubmitButton(){
+        document.getElementById("Comment form").submit();
+        }
+    </script>
+</html>
