@@ -3,7 +3,7 @@ from cassandra.policies import WhiteListRoundRobinPolicy, DowngradingConsistency
 from cassandra.query import tuple_factory
 
 
-cluster = Cluster(['172.17.0.6'], port=9042)
+cluster = Cluster(['IP OF Cassandra'], port=9042)
 session = cluster.connect('predicted_comment')
 
 print(session.execute("SELECT release_version FROM system.local").one())
