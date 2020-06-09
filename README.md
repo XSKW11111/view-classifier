@@ -16,7 +16,7 @@ minikube mount PATH_of_ProjectDirectory/model:/minikube_model
 ```
 
 ```
-minukube mount PATH_of_ProjectDirectory/CassandraDB/data:/cassandra_data
+minikube mount PATH_of_ProjectDirectory/CassandraDB/data:/cassandra_data
 ```
 
 After mounting the volume into minikube, apply config file to create deployment : 
