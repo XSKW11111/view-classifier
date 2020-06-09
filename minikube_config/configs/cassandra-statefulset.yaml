@@ -60,8 +60,13 @@ spec:
         volumeMounts:
         - name: cassandra-data
           mountPath: /cassandra_data
-      volumes:
-        - name: cassandra-data
-          hostPath:
-            path: "/cassandra_data"
-  
+  volumeClaimTemplates:
+  - metadata:
+      name: cassandra-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: manual
+      resources:
+        requests:
+          storage: 1Gi
+      volumeName: task-pvc-volume
